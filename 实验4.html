@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>起始页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+        }
+        /* 按钮呼吸动画 */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="relative w-full h-full">
+        <!-- 背景图全屏显示 -->
+        <img src="https://s41.ax1x.com/2025/12/06/pZmr7qJ.png" 
+             alt="背景图" 
+             class="absolute inset-0 w-full h-full object-cover">
+        
+        <!-- 唯一的开始按钮 - 居中偏下 -->
+        <a href="next-page.html"  <!-- 替换为实际下一页链接 -->
+           class="absolute left-1/2 bottom-[15%] -translate-x-1/2 bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 btn-pulse text-lg">
+            开始
+        </a>
+    </div>
+
+    <script>
+        // 仅保留按钮触摸反馈
+        const btn = document.querySelector('a');
+        btn.addEventListener('touchstart', () => {
+            btn.classList.add('scale-95', 'bg-red-700');
+        });
+        btn.addEventListener('touchend', () => {
+            btn.classList.remove('scale-95', 'bg-red-700');
+        });
+    </script>
+</body>
+</html>
